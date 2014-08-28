@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+        <emailnotify module="emailnotify">
+            <title>Email Notification</title>
+            <sort_order>71</sort_order>
+            <children>
+                <dynamic_fields module="emailnotify">
+                    <title>Manage Reports</title>
+                    <sort_order>20</sort_order>
+                    <action>emailnotify/adminhtml_emailnotify/</action>
+                </dynamic_fields>
+				<settings translate="title" module="emailnotify">
+                    <title>General Settings</title>
+                    <action>adminhtml/system_config/edit/section/emailnotify_tab</action>
+                    <sort_order>40</sort_order>
+                </settings>
+            </children>
+        </emailnotify>
+    </menu>
+	
+    <acl>
+        <resources>
+			<all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+			    <children>
+					<emailnotify>
+						<title>Email Notification</title>
+						<children>
+							<dynamic_fields>
+								<title>ContactUs Fields</title>
+							</dynamic_fields>
+						</children>
+					</emailnotify>		
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <emailnotify_tab>
+                                        <title>Email Notify Setting</title>
+                                    </emailnotify_tab>				
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

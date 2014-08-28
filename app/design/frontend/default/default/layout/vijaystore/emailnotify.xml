@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<default>	
+		<reference name="head" ifconfig="emailnotify_tab/emailnotify_setting/easycontact_active">
+			<action method="addItem" >
+				<type>skin_css</type> 
+				<name>email_notify/css/email_notify_style.css</name>
+				<params/>
+			</action> 
+
+			<action method="addItem" ifconfig="emailnotify_tab/emailnotify_setting/emailnotify_js_config">
+				<type>skin_js</type> 
+				<name>email_notify/js/jquery-1.7.1.min.js</name>
+				<params/>
+			</action>
+			
+			<action method="addItem">
+				<type>skin_js</type> 
+				<name>email_notify/js/email_notify_script.js</name>
+				<params/>
+			</action>
+			
+			<!-- Popup page -->
+			<!-- 
+				<action method="addJs"><script>prototype/window.js</script></action>
+				<action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+				<action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+			-->
+		</reference>
+	</default>
+
+</layout>

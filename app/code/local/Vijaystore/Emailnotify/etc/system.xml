@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <myconf_vijaystore translate="label" module="emailnotify">
+            <label>VijayStore</label>
+            <sort_order>300</sort_order>
+        </myconf_vijaystore>
+    </tabs>	
+	
+    <sections>
+        <emailnotify_tab translate="label" module="emailnotify">
+            <label>Email Notify</label>
+            <tab>myconf_vijaystore</tab>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <emailnotify_setting translate="label comment">
+                    <label>Email Notify Setting</label>
+                    <sort_order>503</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <emailnotify_active translate="label comment">
+                            <label>Email Notify</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<comment>Email Notify Enable/Disable</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </emailnotify_active>
+						<emailnotify_subject translate="label comment">
+								<label>Subject</label>
+								<frontend_type>text</frontend_type>
+								<validate>required-entry </validate>							
+								<comment>Sending E-Mail Subject</comment>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+						</emailnotify_subject>
+						<emailnotify_administrator translate="label comment">
+							<frontend_type>select</frontend_type>
+							<label>Admin Email Notification</label>
+							<source_model>adminhtml/system_config_source_email_identity</source_model>
+							<comment>Send email from admin</comment>
+							<validate>required-entry</validate>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</emailnotify_administrator>  
+						<!--
+						<emailnotify_js_config translate="label comment">
+								<label>Enable jQuery</label>
+								<frontend_type>select</frontend_type>
+								<validate>required-entry </validate>							
+								<source_model>adminhtml/system_config_source_yesno</source_model> 
+								<comment>jQuery Enable/Disable</comment>
+								<sort_order>4</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+						</emailnotify_js_config>
+						-->
+                     </fields>
+                </emailnotify_setting>		
+            </groups>
+        </emailnotify_tab>
+    </sections>
+</config>

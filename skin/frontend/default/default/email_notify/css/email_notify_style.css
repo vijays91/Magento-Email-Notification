@@ -1,0 +1,18 @@
+#email_notify {background:none repeat scroll 0 0 #EEEEEE;box-shadow:0 0 4px #A5A5A5 inset;padding:10px;position: relative;}
+#email_notify_success {display: none;}
+.link-wishlist.paddtop{padding-top: 10px;}
+#email_notify_text {float: left;width: 220px;}
+#email_notify_head{padding-bottom: 5px;}
+.email_notify_popup{height: auto; padding: 10px;}
+.email_notify_popup #email_notify_text {width: 250px;}
+#email_notify_loader{
+	/*background: url("../images/loading.gif") no-repeat scroll center center / 25px 25px rgba(0, 0, 0, 0);*/
+	background:url("../../images/opc-ajax-loader.gif") no-repeat scroll 56% 74% rgba(0, 0, 0, 0);	
+	height: 100%;
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	display:none;
+}
+.remember-me-popup {position: fixed;}

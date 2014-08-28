@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Vijaystore_Emailnotify>
+            <version>1.0.0</version>
+        </Vijaystore_Emailnotify>
+    </modules>
+	
+	<frontend>
+		<routers>
+			<emailnotify>
+				<use>standard</use>
+				<args>
+					<module>Vijaystore_Emailnotify</module>
+					<frontName>emailnotify</frontName>
+				</args>
+			</emailnotify>
+		</routers>
+		<layout>
+			<updates>
+				<emailnotify>
+					<file>vijaystore/emailnotify.xml</file>
+				</emailnotify>
+			</updates>
+		</layout>
+	</frontend>
+	
+    <global>
+		<models>
+            <emailnotify>
+                <class>Vijaystore_Emailnotify_Model</class>
+                <resourceModel>emailnotify_mysql4</resourceModel>
+            </emailnotify>
+			
+            <emailnotify_mysql4>
+                <class>Vijaystore_Emailnotify_Model_Mysql4</class>
+                <entities>
+				    <emailnotify>
+                        <table>vijaystore_email_notification</table>
+                    </emailnotify>
+                </entities>
+            </emailnotify_mysql4>
+        </models>
+		
+        <resources>
+            <emailnotify_setup>
+                <setup>
+                    <module>Vijaystore_Emailnotify</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </emailnotify_setup>
+            <emailnotify_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </emailnotify_write>
+            <emailnotify_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </emailnotify_read>
+        </resources>
+		
+		<!-- Initialize the Block class -->
+		<blocks>
+            <emailnotify>
+                <class>Vijaystore_Emailnotify_Block</class>
+            </emailnotify>
+        </blocks>
+		<!-- Initialize the Model class -->
+		<models>
+            <emailnotify>
+                <class>Vijaystore_Emailnotify_Model</class>
+            </emailnotify>
+        </models>
+		<!-- Initialize the Helper class -->
+		<helpers>
+			<emailnotify>
+				<class>Vijaystore_Emailnotify_Helper</class>
+			</emailnotify>
+		</helpers>
+		<!-- Initialization of Event Observer -->
+		<events>
+			<catalog_product_save_after>
+				<observers>
+					<emailnotify>
+						<type>singleton</type>
+						<class>emailnotify/observer</class>
+						<method>sendNotify</method>
+					</emailnotify>
+				</observers>
+			</catalog_product_save_after>
+        </events>
+					
+		<template>
+			<email>
+				<emailnotify_tab_emailnotify_setting_template translate="label" module="emailnotify">
+					<label>Contact Form Admin Email Template</label>
+					<file>emailnotify_stock_update.html</file>
+					<type>html</type>
+				</emailnotify_tab_emailnotify_setting_template>
+			</email>
+		</template>		
+    </global>
+	
+	<admin>
+        <routers>
+            <emailnotify>
+                <use>admin</use>
+                <args>
+                    <module>Vijaystore_Emailnotify</module>
+                    <frontName>emailnotify</frontName>
+                </args>
+            </emailnotify>
+        </routers>
+    </admin>
+ 	
+	<adminhtml>
+		<layout>
+			<updates>
+				<emailnotify module="emailnotify">
+					<file>vijaystore/emailnotify.xml</file>
+				</emailnotify>
+			</updates>
+		</layout>
+	</adminhtml> 
+
+	<default>
+		<emailnotify_tab>
+			<emailnotify_setting>
+				<emailnotify_active>0</emailnotify_active>
+				<!-- <emailnotify_js_config>0</emailnotify_js_config> -->
+				<emailnotify_subject>Reg:Product Avilable</emailnotify_subject>
+				<emailnotify_administrator>support</emailnotify_administrator>
+			</emailnotify_setting>
+		</emailnotify_tab>
+	</default>	
+</config>

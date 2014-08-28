@@ -1,0 +1,45 @@
+<?php
+$current_cust_email = "";
+if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+     $current_cust_email = Mage::getSingleton('customer/session')->getCustomer()->getEmail();
+ }
+ 
+$_product = $this->getProduct();
+if ($this->displayProductStockStatus()) {
+	if (!$_product->isAvailable()) {
+		if(Mage::helper('emailnotify/data')->email_notify_enable()) {
+?>
+		<div id="email_notify" class="input-box">
+		
+			<div id="email_notify_head"><?php echo $this->__('Notify me when this product is in stock:');?></div>
+		
+			<input type="hidden" name="email_notify_product" id="email_notify_product" value="<?php echo $_product->getId();?>" />
+			
+			<input type="hidden" name="email_notify_url" id="email_notify_url" value="<?php echo $this->getUrl('emailnotify/index/emailnotify');?>" />
+			
+			<input type="text" name="email_notify_text" id="email_notify_text" class="input-text " placeholder="Enter The Email Id" value="<?php echo $current_cust_email; ?>" autocomplete="off" />
+			
+			&nbsp;&nbsp;&nbsp;
+			
+				<button class="button" title="Email Notify" type="button" onclick="return notify_email();">
+					<span>
+						<span><?php echo $this->__('Notify Me');?></span>
+					</span>
+				</button>
+				
+			<!--
+			<a href="javascript:" class="button crisp" onclick="return notify_email();"><?php echo $this->__('Notify Me');?></a>
+			-->
+			
+			<div id="email_notify_success" class="availability out-of-stock">
+				<span><?php echo $this->__('You will be Notified by Email when it becomes available.');?></span>
+			</div> 
+			<div id="email_notify_loader"></div>
+		</div>
+<?php		
+		}
+	}
+}
+
+?>
+
