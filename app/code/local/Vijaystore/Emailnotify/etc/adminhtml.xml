@@ -30,7 +30,7 @@
 						<title>Email Notification</title>
 						<children>
 							<dynamic_fields>
-								<title>ContactUs Fields</title>
+								<title>General Settings</title>
 							</dynamic_fields>
 						</children>
 					</emailnotify>		
