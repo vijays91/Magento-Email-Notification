@@ -185,8 +185,13 @@ class Vijaystore_Emailnotify_Adminhtml_EmailnotifyController extends Mage_Adminh
 		$fileName   = 'email_notify.xlsx';
 		$worksheet_name = "Email Notify";
 		$content    = $this->getLayout()->createBlock('emailnotify/adminhtml_emailnotify_grid')->getXL();
-		include Mage::getBaseDir("lib") . DS . "xl-reader" . DS . "PHPExcel.php";
+		// include Mage::getBaseDir("lib") . DS . "xl-reader" . DS . "PHPExcel.php";
+		// $objPHPExcel = new PHPExcel();
+	    
+	    	$includePath = Mage::getBaseDir("lib") . DS . "xl-reader";
+		set_include_path(get_include_path() . PS . $includePath); 
 		$objPHPExcel = new PHPExcel();
+	    
 		$rowCount = 1;  		
 		foreach($content as $value){
 			$column = 'A';
